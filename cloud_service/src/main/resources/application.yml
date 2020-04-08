@@ -13,4 +13,4 @@ eureka:
     ###是否需要从eureka上检索服务
     fetch-registry: true
     service-url:
-      defaultZone: http://127.0.0.1:9100/eureka
+      defaultZone: http://pengwei:123456@127.0.0.1:9100/eureka
