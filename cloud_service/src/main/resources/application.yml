@@ -13,8 +13,8 @@ eureka:
     ###是否需要从eureka上检索服务
     fetch-registry: true
     service-url:
-      defaultZone: http://pengwei:123456@127.0.0.1:9100/eureka/,http://pengwei:123456@127.0.0.1:9200/eureka/
+      defaultZone: http://pengwei:123456@192.168.99.189:9100/eureka/,http://pengwei:123456@192.168.99.189:9200/eureka/
   instance:
     prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
-    ip-address: 127.0.0.1
+    ip-address: 192.168.99.189
     instance-id: ${spring.application.name}###${server.port} #指定实例id

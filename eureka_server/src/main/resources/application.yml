@@ -18,7 +18,7 @@ spring:
 eureka:
   instance:
     #注册中心地址
-    hostname: 127.0.0.1
+    hostname: 192.168.99.189
   ###客户端调用地址
   client:
     ###是否将自己注册到Eureka服务中,因为该应用本身就是注册中心，不需要再注册自己（集群的时候为true）
