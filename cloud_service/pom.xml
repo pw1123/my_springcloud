@@ -66,7 +66,15 @@
 
     <build>
         <plugins>
-            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <!--<build>
+        <plugins>
+            &lt;!&ndash; 资源文件拷贝插件 &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -75,7 +83,7 @@
                 </configuration>
             </plugin>
 
-            <!-- java编译插件 -->
+            &lt;!&ndash; java编译插件 &ndash;&gt;
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -86,6 +94,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>
