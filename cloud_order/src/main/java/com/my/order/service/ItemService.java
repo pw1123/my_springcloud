@@ -2,6 +2,7 @@ package com.my.order.service;
 
 
 import com.my.order.entity.Item;
+import com.my.order.feign.ItemFeignClient;
 import com.my.order.properties.OrderProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +48,13 @@ public class ItemService {
         return result;
     }
 
+    @Autowired
+    private ItemFeignClient itemFeignClient;
+
     @HystrixCommand(fallbackMethod = "queryItemByIdFallbackMethod")
     public Item queryItemById3(Long id) {
         String itemUrl = "http://cloud-service/item/{id}";
-        Item result = restTemplate.getForObject(itemUrl, Item.class, id);
+        Item result = itemFeignClient.queryItemById(id);
         System.out.println("===========HystrixCommand queryItemById-线程池名称：" + Thread.currentThread().getName() + "订单系统调用商品服务,result:" + result);
         return result;
     }
@@ -58,4 +62,7 @@ public class ItemService {
     public Item queryItemByIdFallbackMethod(Long id) {
         return new Item(id, "查询商品信息出错!", null, null, null);
     }
+
+
+
 }
